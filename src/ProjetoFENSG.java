@@ -81,12 +81,12 @@ public class ProjetoFENSG extends JFrame {
 		JButton btnNewButton = new JButton("CALCULAR");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				double divida = 390;
+				double divida = 390.00;
 				double multa = 7.80;
-				int DiasAtraso = Integer.parseInt(txtDiasAtraso.getText());
+				double DiasAtraso = Double.parseDouble(txtDiasAtraso.getText());
 				
 				if (DiasAtraso > 0) {
-			         double juros = (divida * 0.02) * DiasAtraso;
+			         double juros = 0.02 * DiasAtraso;
 			         divida += juros + multa;
 			      }
 				txtTotal.setText(String.valueOf(String.format("%.2f", divida)));
