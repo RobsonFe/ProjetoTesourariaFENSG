@@ -16,9 +16,65 @@ Outro recurso interessante implementado foi a possibilidade de utilizar links ex
 
 ![Imagem 1](https://github.com/RobsonFe/ProjetoTesourariaFENSG/assets/115955245/c8164b07-79a0-45e8-96bc-0f022c8f4b25)
 
-- Configuração de link de página ao clicar no botão, utilização da biblioteca para validar os campos apenas com números e função de limpar a caixa de texto.
+- Calculo da divida recebendo os valores do usuario e sendo calculados.
+```
+JButton btnNewButton = new JButton("CALCULAR");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double divida = 390.00;
+				double multa = 7.80;
+				double DiasAtraso = Double.parseDouble(txtDiasAtraso.getText());
+				
+				if (DiasAtraso > 0) {
+			         double juros = 0.02 * DiasAtraso;
+			         divida += juros + multa;
+			      }
+				txtTotal.setText(String.valueOf(String.format("%.2f", divida)));
+			}
+		});
+  ```
 
-![Imagem 2](https://github.com/RobsonFe/ProjetoTesourariaFENSG/assets/115955245/4f90ea50-b0e6-422a-9da0-0658dd97d255)
+- Configuração de link de página ao clicar no botão, utilização da biblioteca para validar os campos apenas com números e função de limpar a caixa de texto.
+  
+```
+JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sobre sobre = new Sobre();
+				sobre.setVisible(true);
+			} // Linkando a classe sobre a Classe Projeto.
+		});
+		btnNewButton_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton_2.setToolTipText("Sobre");
+		btnNewButton_2.setIcon(new ImageIcon(ProjetoFENSG.class.getResource("/icons/About.png")));
+		btnNewButton_2.setBounds(370, 18, 48, 48);
+		contentPane.add(btnNewButton_2);
+		
+		RestrictedTextField validar = new RestrictedTextField(txtDiasAtraso);
+		validar.setOnlyNums(true);
+	} // fim do construtor
+	
+	private void limpar() {
+		txtDiasAtraso.setText(null);
+		txtTotal.setText(null);
+	} //Metodo para limpar caixa de texto.
+}
+```
+
+- Método para abrir sites externos no Java.
+```
+private void link(String site) {
+		Desktop desktop = Desktop.getDesktop();
+		try{
+			URI uri = new URI(site);
+			desktop.browse(uri);
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+	}// Metodo para habilitar abertura de sites no Java.
+
+}
+```
 
 ## Conclusão
 
