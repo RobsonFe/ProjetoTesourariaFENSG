@@ -75,6 +75,9 @@ private void link(String site) {
 
 }
 ```
+## Video do Projeto
+
+[Assista ao vídeo do projeto](https://youtu.be/EB3uTwiAsTk)
 
 ## Conclusão
 
